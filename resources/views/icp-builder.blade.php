@@ -92,14 +92,14 @@
         <div x-show="currentStep === 3" class="space-y-3">
             <p class="text-sm font-medium text-gray-700">Pain-to-persona mapping</p>
             <template x-for="(row, idx) in painRows" :key="idx">
-                <div class="grid gap-2 rounded-lg border border-gray-200 p-3 sm:grid-cols-5">
-                    <input x-model="row.persona" class="rounded border border-gray-300 px-2 py-1.5 text-sm" placeholder="Persona" />
-                    <input x-model="row.pain" class="rounded border border-gray-300 px-2 py-1.5 text-sm" placeholder="Top pain" />
-                    <input x-model="row.urgency" class="rounded border border-gray-300 px-2 py-1.5 text-sm" placeholder="Urgency (high/med/low)" />
-                    <input x-model="row.impact" class="rounded border border-gray-300 px-2 py-1.5 text-sm" placeholder="Measurable impact" />
-                    <div class="flex gap-2">
+                <div class="grid grid-cols-1 gap-2 rounded-lg border border-gray-200 p-3 lg:grid-cols-12">
+                    <input x-model="row.persona" class="rounded border border-gray-300 px-2 py-1.5 text-sm lg:col-span-2" placeholder="Persona" />
+                    <input x-model="row.pain" class="rounded border border-gray-300 px-2 py-1.5 text-sm lg:col-span-3" placeholder="Top pain" />
+                    <input x-model="row.urgency" class="rounded border border-gray-300 px-2 py-1.5 text-sm lg:col-span-2" placeholder="Urgency (high/med/low)" />
+                    <input x-model="row.impact" class="rounded border border-gray-300 px-2 py-1.5 text-sm lg:col-span-2" placeholder="Measurable impact" />
+                    <div class="flex gap-2 lg:col-span-3">
                         <input x-model="row.objection" class="w-full rounded border border-gray-300 px-2 py-1.5 text-sm" placeholder="Likely objection" />
-                        <button type="button" @click="removePainRow(idx)" class="rounded border border-red-200 px-2 text-xs text-red-700">X</button>
+                        <button type="button" @click="removePainRow(idx)" class="rounded border border-gray-300 bg-white px-2 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50">Remove</button>
                     </div>
                 </div>
             </template>
@@ -138,15 +138,15 @@
         <div class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
             <h3 class="text-sm font-semibold text-gray-900">Trigger urgency tiers</h3>
             <template x-for="(row, idx) in triggerPriorityRows" :key="idx">
-                <div class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-12">
-                    <input x-model="row.trigger" class="sm:col-span-6 rounded border border-gray-300 px-2 py-1.5 text-sm" placeholder="Trigger" />
-                    <select x-model="row.tier" class="sm:col-span-4 rounded border border-gray-300 px-2 py-1.5 text-sm">
+                <div class="mt-2 grid grid-cols-1 gap-2 md:grid-cols-12">
+                    <input x-model="row.trigger" class="rounded border border-gray-300 px-2 py-1.5 text-sm md:col-span-7" placeholder="Trigger" />
+                    <select x-model="row.tier" class="rounded border border-gray-300 px-2 py-1.5 text-sm md:col-span-3">
                         <option>Critical</option>
                         <option>High</option>
                         <option>Medium</option>
                         <option>Low</option>
                     </select>
-                    <button type="button" @click="triggerPriorityRows.splice(idx, 1)" class="sm:col-span-2 rounded border border-gray-300 bg-white px-2 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50">Remove</button>
+                    <button type="button" @click="triggerPriorityRows.splice(idx, 1)" class="rounded border border-gray-300 bg-white px-2 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 md:col-span-2">Remove</button>
                 </div>
             </template>
             <button type="button" @click="triggerPriorityRows.push({ trigger: '', tier: 'High' })" class="mt-3 rounded border border-gray-300 px-2 py-1.5 text-xs font-medium text-gray-700">Add trigger tier</button>
