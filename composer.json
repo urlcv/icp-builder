@@ -1,0 +1,37 @@
+{
+    "name": "urlcv/icp-builder",
+    "description": "Guided Ideal Customer Profile builder with scoring, query blocks, planning outputs, and print-ready one-pager. Frontend-only tool at urlcv.com.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["icp", "go-to-market", "outbound", "prospecting", "sales", "targeting"],
+    "homepage": "https://urlcv.com/tools/icp-builder",
+    "authors": [
+        {
+            "name": "URLCV",
+            "homepage": "https://urlcv.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "suggest": {
+        "illuminate/support": "Required for Laravel integration (Blade views)"
+    },
+    "autoload": {
+        "psr-4": {
+            "URLCV\\IcpBuilder\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "URLCV\\IcpBuilder\\Laravel\\IcpBuilderServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}
